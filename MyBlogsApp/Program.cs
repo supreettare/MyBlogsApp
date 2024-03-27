@@ -42,7 +42,7 @@ builder.Services.AddAuthentication(x => {
 builder.Services.AddStackExchangeRedisCache(options =>
 {
     //options.Configuration = "localhost"; 
-    options.Configuration = "redis:6380"; 
+    options.Configuration = "host.docker.internal"; 
     options.InstanceName = "SampleInstance";
 });
 
