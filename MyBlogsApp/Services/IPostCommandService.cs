@@ -20,6 +20,13 @@ namespace MyBlogsApp.Services
         {
                 _dbContext = dbContext;
         }
+
+
+        /// <summary>
+        /// Creates a new post item and saves in the DB 
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         public async Task<int> CreatePost(CreatePostRequest request)
         {
             var post = new Post

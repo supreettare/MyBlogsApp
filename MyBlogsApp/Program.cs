@@ -34,6 +34,12 @@ builder.Services.AddAuthentication(x => {
 });
 
 
+//Implmenting Redis Cache 
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+    options.Configuration = "localhost"; 
+    options.InstanceName = "SampleInstance";
+});
 
 
 builder.Services.AddControllers().AddJsonOptions(options => 
