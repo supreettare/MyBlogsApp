@@ -1,3 +1,4 @@
+using AspNetCoreRateLimit;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -47,7 +48,7 @@ builder.Services.AddControllers().AddJsonOptions(options =>
     // Serialize enums as strings in api responses (e.g. Gender)
     options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
 
-    //Ignore default nulls
+    // Ignore default nulls
     options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
 
     // Ignore possible object cycles
@@ -57,6 +58,22 @@ builder.Services.AddControllers().AddJsonOptions(options =>
 //Swagger 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+
+// Implementing Rate Limits 
+//https://github.com/stefanprodan/AspNetCoreRateLimit/wiki/IpRateLimitMiddleware#setup
+
+// Needed to store rate limit counters and ip rules
+builder.Services.AddMemoryCache();
+
+// General configuration from appsettings.json
+builder.Services.Configure<IpRateLimitOptions>(builder.Configuration.GetSection("IpRateLimiting"));
+
+// Inject counter and rules stores
+builder.Services.AddInMemoryRateLimiting();
+
+// Add the rate limiter service as Sigleton 
+builder.Services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
 
 
 //Add CQRS Services 
@@ -76,6 +93,10 @@ if (app.Environment.IsDevelopment())
 // Configure the HTTP request pipeline.
 
 app.UseHttpsRedirection();
+
+// Using IP based rate limiting, the package also provides a custom client ID based limiting as well. 
+app.UseIpRateLimiting();
+
 app.UseAuthentication();
 app.UseAuthorization();
 
