@@ -22,5 +22,14 @@ namespace MyBlogsApp.Data
                 .WithOne(p => p.Post)
                 .OnDelete(DeleteBehavior.Cascade); 
         }
+
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlServer(builder.Configuration.GetConnectionString("DbConnString"), builder =>
+        //    {
+        //        builder.EnableRetryOnFailure(5, TimeSpan.FromSeconds(10), null);
+        //    });
+        //    base.OnConfiguring(optionsBuilder);
+        //}
     }
 }

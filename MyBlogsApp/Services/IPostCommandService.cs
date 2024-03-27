@@ -29,20 +29,27 @@ namespace MyBlogsApp.Services
         /// <returns></returns>
         public async Task<int> CreatePost(CreatePostRequest request)
         {
-            var post = new Post
+            try
             {
-                Title = request.Title,
-                Content = request.Content,
-                Comments = request.Comments.Select(c => new Comment
+                var post = new Post
                 {
-                    Author = c.Author,
-                    Content = c.Content
-                }).ToList()
-            };
+                    Title = request.Title,
+                    Content = request.Content,
+                    Comments = request.Comments.Select(c => new Comment
+                    {
+                        Author = c.Author,
+                        Content = c.Content
+                    }).ToList()
+                };
 
-            _dbContext.Posts.Add(post);
-            await _dbContext.SaveChangesAsync();   
-            return post.Id;
+                _dbContext.Posts.Add(post);
+                await _dbContext.SaveChangesAsync();
+                return post.Id;
+            }
+            catch (Exception ex)
+            {
+                return -1; 
+            }
         }
     }
 }

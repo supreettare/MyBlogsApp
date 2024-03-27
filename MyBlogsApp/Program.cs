@@ -12,7 +12,10 @@ using System.Text.Json.Serialization;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddDbContext<AppDBContext>(options=> options.UseSqlServer(builder.Configuration.GetConnectionString("DbConnString")));
+builder.Services.AddDbContext<AppDBContext>(options => 
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DbConnString")); 
+}); 
 
 
 //Add JWT Token & configure basic settings 
@@ -38,7 +41,8 @@ builder.Services.AddAuthentication(x => {
 //Implmenting Redis Cache 
 builder.Services.AddStackExchangeRedisCache(options =>
 {
-    options.Configuration = "localhost"; 
+    //options.Configuration = "localhost"; 
+    options.Configuration = "redis:6380"; 
     options.InstanceName = "SampleInstance";
 });
 
