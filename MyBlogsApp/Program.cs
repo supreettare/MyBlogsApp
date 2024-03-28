@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using MyBlogsApp.Data;
+using MyBlogsApp.Migrations;
 using MyBlogsApp.Services;
 using System.Text;
 using System.Text.Json.Serialization;
@@ -42,7 +43,8 @@ builder.Services.AddAuthentication(x => {
 builder.Services.AddStackExchangeRedisCache(options =>
 {
     //options.Configuration = "localhost"; 
-    options.Configuration = "host.docker.internal"; 
+    //options.Configuration = "host.docker.internal"; 
+    options.Configuration = "redis:6379";
     options.InstanceName = "SampleInstance";
 });
 
@@ -105,5 +107,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+await MigrationHelper.ApplyDatabaseMigrationsAsync(app.Services);
 
 app.Run();
