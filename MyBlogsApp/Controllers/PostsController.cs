@@ -9,12 +9,12 @@ namespace MyBlogsApp.Controllers
     [ApiController]
     [Route("api/[controller]")]
     [Authorize]
-    public class PostController : Controller
+    public class PostsController : Controller
     {
         private readonly IPostCommandService _postCommandService;
         private readonly IPostQueryService _postQueryService;
 
-        public PostController(IPostCommandService postCommandService, IPostQueryService postQueryService)
+        public PostsController(IPostCommandService postCommandService, IPostQueryService postQueryService)
         {
             _postCommandService = postCommandService;
             _postQueryService = postQueryService;
