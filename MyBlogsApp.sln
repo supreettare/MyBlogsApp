@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyBlogsApp", "MyBlogsApp\My
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{593CE6D1-3987-47D0-8E11-193C1E292C9E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyBlogsApp.Tests", "..\MyBlogsApp.Tests\MyBlogsApp.Tests.csproj", "{71EF915C-A7EB-4736-9AAA-765BE3F93AB2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyBlogsApp.Tests", "MyBlogsApp.Tests\MyBlogsApp.Tests.csproj", "{389A4387-C5E8-4B64-9678-F57C3A0716A9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{593CE6D1-3987-47D0-8E11-193C1E292C9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{593CE6D1-3987-47D0-8E11-193C1E292C9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{593CE6D1-3987-47D0-8E11-193C1E292C9E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{71EF915C-A7EB-4736-9AAA-765BE3F93AB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{71EF915C-A7EB-4736-9AAA-765BE3F93AB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{71EF915C-A7EB-4736-9AAA-765BE3F93AB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{71EF915C-A7EB-4736-9AAA-765BE3F93AB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{389A4387-C5E8-4B64-9678-F57C3A0716A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{389A4387-C5E8-4B64-9678-F57C3A0716A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{389A4387-C5E8-4B64-9678-F57C3A0716A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{389A4387-C5E8-4B64-9678-F57C3A0716A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
