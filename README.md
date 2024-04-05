@@ -29,5 +29,35 @@ Posts Controller: Acts as an API endpoint; it processes incoming HTTP requests, 
     - Each component operates within its scope, collaboratively supporting the application's functionality while adhering to the separation of concerns dictated by the CQRS pattern.
 
 
+**Running the app: **
+- You can run & test the app via Postman. To do this, follow the steps below. 
+1. Download the Postman package json from here https://github.com/supreettare/MyBlogsApp/blob/master/EmpowerIDDemoSupreet.postman_collection.json
+2. Import the postman collectoion package to your Postman app.
+3. You will notice 3 APIs, use them in the below order: 
+    a.) http://empiddemo.centralindia.azurecontainer.io:8080/api/auth/token => Run this to get an Auth Token 
+    b.) http://empiddemo.centralindia.azurecontainer.io:8080/api/posts/ => Use this api to create new Blog Posts with comments, following JSON pattern is used 
+
+{
+  "title": "Azure DB Entry 1",
+  "content": "This should work",
+  "comments": [
+    {
+      "author": "Supreet",
+      "content": "Does this work?"
+    }
+  ]
+}
+
+    c.) http://empiddemo.centralindia.azurecontainer.io:8080/api/posts/{id} => Use this API to fetch Posts with comments by passing the Id. 
+
+**Additional Notes: **
+
+- The first time the posts will be fetched from the DB & then will be cached. 
+- The default rate limit to APIs is 5 APIs per minute 
+
+
+ 
+
+ 
 
 
