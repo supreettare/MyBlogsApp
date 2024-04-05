@@ -1,0 +1,111 @@
+{
+	"info": {
+		"_postman_id": "96dce431-d374-49e7-a615-f368f89c0082",
+		"name": "EmpowerIDDemoSupreet",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "694331"
+	},
+	"item": [
+		{
+			"name": "http://empiddemo.centralindia.azurecontainer.io:8080/api/auth/token",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://empiddemo.centralindia.azurecontainer.io:8080/api/auth/token",
+					"protocol": "http",
+					"host": [
+						"empiddemo",
+						"centralindia",
+						"azurecontainer",
+						"io"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://empiddemo.centralindia.azurecontainer.io:8080/api/posts/",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJFeGFtcGxlVXNlciIsImVtYWlsIjoidXNlckBleGFtcGxlLmNvbSIsImV4cCI6MTcxMjI5NjI2NSwiaXNzIjoiTXlCbG9nc0FwcCIsImF1ZCI6IllvdXJBcHBOYW1lVXNlcnMifQ.bU1VsC6jhKuUYa7nfDytohuYGtadZt_0nWbNLczZJa8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Azure DB Entry 1\",\r\n  \"content\": \"This should work\",\r\n  \"comments\": [\r\n    {\r\n      \"author\": \"Supreet\",\r\n      \"content\": \"Does this work?\"\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://empiddemo.centralindia.azurecontainer.io:8080/api/posts/",
+					"protocol": "http",
+					"host": [
+						"empiddemo",
+						"centralindia",
+						"azurecontainer",
+						"io"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"posts",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://empiddemo.centralindia.azurecontainer.io:8080/api/posts/2",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJFeGFtcGxlVXNlciIsImVtYWlsIjoidXNlckBleGFtcGxlLmNvbSIsImV4cCI6MTcxMjI5NjI2NSwiaXNzIjoiTXlCbG9nc0FwcCIsImF1ZCI6IllvdXJBcHBOYW1lVXNlcnMifQ.bU1VsC6jhKuUYa7nfDytohuYGtadZt_0nWbNLczZJa8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://empiddemo.centralindia.azurecontainer.io:8080/api/posts/2",
+					"protocol": "http",
+					"host": [
+						"empiddemo",
+						"centralindia",
+						"azurecontainer",
+						"io"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"posts",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
